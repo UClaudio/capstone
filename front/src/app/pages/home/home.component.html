@@ -1,0 +1,19 @@
+<div class="p-0 d-flex justify-content-center">
+    <div class="form-div mt-4 form-color">
+        <h1>Dove vuoi ricevere il cibo?</h1>
+        <form [formGroup]="form" id="form-location">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Address</label>
+                <input [(ngModel)]="address" name="address"  formControlName="address" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter address">
+            </div>
+            
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+        <div id="infowindow-content">
+            <span id="place-name" class="title"></span><br/>
+            <span id="place-address"></span>
+        </div>
+    </div>
+    <div id="map" #divMap></div>
+</div>
