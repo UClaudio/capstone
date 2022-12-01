@@ -1,0 +1,27 @@
+1669630853440	Rename type 'Ordine'
+1669711328901	Delete element
+1669712828145	Delete element
+1669713343756	Delete element
+1669713379566	Delete element
+1669714951110	Delete element
+1669715009333	Rename type 'Order'
+1669715052515	Rename type 'OrderRepository'
+1669715132954	Rename type 'DeliveryRepository'
+1669718980964	Delete element
+1669719037692	Rename type 'Status'
+1669719075617	Rename type 'Delivery'
+1669719148563	Rename type 'Address'
+1669719162660	Rename type 'Product'
+1669719171705	Rename type 'Restaurant'
+1669719228250	Rename type 'User'
+1669719239178	Rename type 'Role'
+1669719268035	Rename type 'Category'
+1669719388801	Rename package 'com.claudiourru.capstone.entities'
+1669719784335	Rename type 'Categoria'
+1669719794307	Rename type 'Indirizzo'
+1669719806413	Rename type 'Ordine'
+1669719814039	Rename type 'Prodotto'
+1669719822592	Rename type 'Ristorante'
+1669719832761	Rename type 'Ruolo'
+1669719838555	Rename type 'Stato'
+1669719844150	Rename type 'Utente'

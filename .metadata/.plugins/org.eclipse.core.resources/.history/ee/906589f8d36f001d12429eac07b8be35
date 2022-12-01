@@ -1,0 +1,48 @@
+package com.claudiourru.capstone.entities;
+
+import java.time.LocalTime;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Table(name = "restaurants")
+@NoArgsConstructor
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@ToString
+public class Restaurant {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "restaurant_id", nullable = false)
+	private Long id;
+
+	private String name;
+	
+	private Indirizzo address;
+	
+	private LocalTime openingTime;
+	
+	private LocalTime closingTime;
+	
+	private boolean open = false;
+	
+	@OneToMany(mappedBy = "menus")
+	private List<Long> menuIds;
+}

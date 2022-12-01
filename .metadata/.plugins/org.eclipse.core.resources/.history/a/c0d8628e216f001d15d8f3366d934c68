@@ -1,0 +1,14 @@
+package com.claudiourru.capstone.entities;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+public class Order {
+	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id", nullable = false)
+	private Long id;
+	
+	private Restaurant restaurantId;
+}

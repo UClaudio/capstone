@@ -1,0 +1,24 @@
+package com.claudiourru.capstone;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@SpringBootApplication
+@EntityScan(basePackages = {"com.claudiourru.capstone"})
+public class Application implements CommandLineRunner {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+		System.out.println("ciao");
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+				
+	}
+	
+	
+
+}

@@ -1,0 +1,5 @@
+package com.claudiourru.capstone.services;
+
+public class RestaurantService {
+
+}

@@ -1,0 +1,12 @@
+package com.claudiourru.capstone.entities;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+public class Product {
+	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id", nullable = false)
+	private Long id;
+}

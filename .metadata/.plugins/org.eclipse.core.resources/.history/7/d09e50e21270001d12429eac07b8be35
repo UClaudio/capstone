@@ -1,0 +1,5 @@
+package com.claudiourru.capstone.runnables;
+
+public class AddressRunnable {
+
+}

@@ -1,0 +1,58 @@
+package com.claudiourru.capstone.models;
+
+import java.time.LocalTime;
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Table(name = "orders")
+@NoArgsConstructor
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@ToString
+public class Order {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_id", nullable = false)
+	private Long id;
+	
+	@OneToOne
+	private Restaurant pickUpPlace;
+	
+	@OneToOne
+	private Address deliveryAddress;
+	
+	private LocalTime pickUpTime;
+	
+	private double deliveryCost;
+	
+	@Enumerated(EnumType.STRING)
+	private Status status;
+	
+	private LocalTime expectedDeliveryTime;
+	
+	@OneToMany(mappedBy = "id")
+	private List<Product> productId;
+	
+	private Long userId;
+	
+}

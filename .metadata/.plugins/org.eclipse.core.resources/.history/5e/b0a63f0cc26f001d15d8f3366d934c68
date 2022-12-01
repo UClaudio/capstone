@@ -1,0 +1,9 @@
+package repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.claudiourru.capstone.entities.Order;
+
+public class OrderRepository implements JpaRepository<Order, Long> {
+
+}

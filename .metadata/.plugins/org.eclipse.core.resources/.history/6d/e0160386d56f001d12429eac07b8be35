@@ -1,0 +1,10 @@
+package com.claudiourru.capstone.models;
+
+public enum Stato {
+	
+	PENDING,
+	OPEN,
+	TAKEN_BY_DRIVER,
+	COMPLETED
+	
+}

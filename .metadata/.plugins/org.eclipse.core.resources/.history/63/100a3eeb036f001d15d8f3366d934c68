@@ -1,0 +1,9 @@
+package com.claudiourru.capstone.entities;
+
+import javax.persistence.GeneratedValue;
+
+public class User {
+
+	@GeneratedValue
+	private Long id;
+}

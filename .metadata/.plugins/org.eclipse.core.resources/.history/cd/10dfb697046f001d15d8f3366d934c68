@@ -1,0 +1,44 @@
+package com.claudiourru.capstone.entities;
+
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Table(name = "users")
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+public class User {
+
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id", nullable = false)
+	private Long id;
+	
+	@Column(unique = true, nullable = false)
+    private String username;
+	
+	private String password;
+	
+	private String fullName;
+	
+	private String email;
+	
+	private boolean active;
+	
+	private List<Ordine> orders;
+	
+	private Set<Role> roles;
+	
+}

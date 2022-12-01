@@ -1,0 +1,18 @@
+package com.claudiourru.capstone.entities;
+
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+public class Menu {
+
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "menu_id", nullable = false)
+	private Long id;
+	
+	private String name;
+	
+	private List<Long> categoryIds;
+}

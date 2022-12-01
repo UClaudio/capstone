@@ -1,0 +1,5 @@
+package com.claudiourru.capstone.entities;
+
+public class Role {
+
+}

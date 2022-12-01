@@ -1,0 +1,33 @@
+package com.claudiourru.capstone.services;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.claudiourru.capstone.models.Address;
+import com.claudiourru.capstone.repositories.AddressRepository;
+
+@Service
+public class AddressService {
+
+	@Autowired
+	private AddressRepository ar;
+
+	public void save(Address address) throws Exception {
+		ar.save(address);
+	}
+
+	public void delete(Long id) throws Exception {
+		Optional<Address> address = ar.findById( id );
+		if (address.isPresent()) {
+			ar.delete(address.get());			
+		}
+		throw new Exception("Address not found");
+	}
+	
+	public Address findById(Long id) {
+		
+	}
+
+}

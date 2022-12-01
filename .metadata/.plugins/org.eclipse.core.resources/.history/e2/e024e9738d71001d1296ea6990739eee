@@ -1,0 +1,5 @@
+package com.claudiourru.capstone.controllers;
+
+public class UserController {
+
+}

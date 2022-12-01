@@ -1,0 +1,22 @@
+package com.claudiourru.capstone.runnables;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+
+import com.claudiourru.capstone.entities.Order;
+
+import repositories.OrderRepository;
+
+public class OrderRunner implements CommandLineRunner {
+
+	@Autowired
+	OrderRepository or;
+	
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("ciao2");
+		or.save(new Order());
+		
+	}
+
+}

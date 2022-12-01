@@ -1,0 +1,19 @@
+package com.claudiourru.capstone.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.claudiourru.capstone.models.Address;
+import com.claudiourru.capstone.repositories.AddressRepository;
+
+@Service
+public class AddressService {
+	
+	@Autowired
+	private AddressRepository ar;
+	
+	protected void save(Address address) {
+		ar.save(address);
+	}
+
+}
