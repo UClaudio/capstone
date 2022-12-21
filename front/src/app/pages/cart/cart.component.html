@@ -1,0 +1,6 @@
+<i class="bi bi-cart3 text-light fs-3 cart-btn" (click)="cartToggler($event)" [ngClass]="{'btn-active': toggleCart}"></i>
+<div class="cart-wrapper">
+    <div class="cart-content bg-dark container" [ngClass]="{'cart-active': toggleCart}">
+        <app-cart-product *ngFor="let product of products" [product]="product"></app-cart-product>
+    </div>
+</div>

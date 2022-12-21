@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Options } from 'ngx-google-places-autocomplete/objects/options/options';
+import { Restaurant } from 'src/app/models/restaurant';
+import { RestaurantService } from 'src/app/services/restaurant.service';
 
 @Component({
   selector: 'app-home',
@@ -8,42 +11,65 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-  form!: FormGroup
+  b: boolean = false
+  restaurants!: Restaurant[]
 
-  address!: HTMLElement
-
-  constructor() { }
+  restaurants2: Restaurant[] = []
+  constructor(private restSvc: RestaurantService) { }
 
   ngOnInit(): void {
-    this.initMap()
-    this.form = new FormGroup({
-      address: new FormControl(null, [Validators.required])
+    this.restSvc.getAll().subscribe({
+      next: res => {
+        this.restaurants = res;
+        console.log(res)
+      },
+      error: error => console.log(error)
     })
-    console.log(this.address)
   }
 
-  initMap(): void {
-    // The location of Uluru
-    const uluru = { lat: 45.12464318174044, lng: 8.909626336317315};
-    // The map, centered at Uluru
-    const map = new google.maps.Map(
-      document.getElementById("map") as HTMLElement,
-      {
-        zoom: 14,
-        center: uluru,
+  options: Options = new Options({
+    componentRestrictions: { country: 'IT' }
+  })
+
+  formattedAddress = ""
+  handleAddressChange(address: any) {
+    this.formattedAddress = address.formatted_address
+  }
+
+  distanceMatrix() {
+
+    this.restaurants2 = []
+
+    // initialize service
+    const service = new google.maps.DistanceMatrixService();
+
+    // build request
+    const request = {
+      origins: this.restaurants.map(r => r.address),
+      destinations: [this.formattedAddress],
+      travelMode: google.maps.TravelMode.DRIVING,
+      unitSystem: google.maps.UnitSystem.METRIC,
+      avoidHighways: false,
+      avoidTolls: false,
+    };
+
+    // get distance matrix response
+    service.getDistanceMatrix(request, (response, status) => {
+      if (status != google.maps.DistanceMatrixStatus.OK) {
+        alert('Error was: ' + status);
       }
-    );
-     // The marker, positioned at Uluru
-    const marker = new google.maps.Marker({
-      position: uluru,
-      map: map,
-    });
+      else {
+        this.restaurants.forEach((r, i) => 
+        response.rows[i].elements[0].distance.value < 15000 ?
+        this.restaurants2.push(r) :
+        this.restaurants2.splice(this.restaurants2.indexOf(r), 1))
+      }
 
-    const infowindow = new google.maps.InfoWindow();
-
-    infowindow.setContent(this.address);
-    let inp = (new HTMLInputElement()).value;
-
-    const autocomplete = new google.maps.places.Autocomplete(this.address as HTMLInputElement);
+    })
   }
+
+  showDiv() {
+    this.b = !this.b
+  }
+
 }

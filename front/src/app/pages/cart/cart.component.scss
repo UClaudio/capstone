@@ -1,0 +1,46 @@
+
+.cart-btn {
+    position: relative;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
+    border-radius: 2rem;
+    width: 1rem;
+    height: 1rem;
+    padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+    max-height: 1rem;
+    background-color: rgb(10, 114, 83);
+    transition: bottom .3s;
+    cursor: pointer;
+    &:focus {
+       background-color: red;
+    }
+}
+
+.cart-wrapper {
+    position: absolute;
+    top: 3.6rem;
+    left: 0;
+    width: 100%;
+}
+
+
+.cart-content {
+    height: 0rem;
+    transition: height .3s;
+    width: 100%;
+    top: 3.6rem;
+    left: 0;
+    opacity: 0.8;
+}
+
+.cart-active {
+    height: 10rem;
+}
+@media screen and (min-width: 1200px) {
+    .cart {
+        
+    }
+}
+
+.btn-active {
+    background-color: red;
+}

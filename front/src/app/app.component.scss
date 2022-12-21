@@ -3,3 +3,17 @@
     width: 50%;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
 }
+
+.background {
+    position: absolute;
+    background-color: rgba(128, 204, 179, 0.9);
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: -1;
+}
+
+.main {
+    height: 100vh;
+}

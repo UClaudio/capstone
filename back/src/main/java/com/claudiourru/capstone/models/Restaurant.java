@@ -12,6 +12,8 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -36,8 +38,8 @@ public class Restaurant {
 
 	private String name;
 	
-	@OneToOne
-	private Address address;
+	
+	private String address;
 	
 	private LocalTime openingTime;
 	
@@ -45,6 +47,7 @@ public class Restaurant {
 	
 	private boolean open = false;
 	
-	@OneToMany(mappedBy = "name")
-	private List<Menu> menus;
+	
+	@OneToOne
+	private Menu menu;
 }

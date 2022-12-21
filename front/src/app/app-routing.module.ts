@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'auth/register',
     component: RegisterComponent
+  },
+  { 
+    path: 'pages',
+     loadChildren: () => import('./pages/restaurant-menu/restaurant-menu.module').then(m => m.RestaurantMenuModule)
   }
 ];
 

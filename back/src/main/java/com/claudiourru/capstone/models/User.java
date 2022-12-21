@@ -1,6 +1,7 @@
 package com.claudiourru.capstone.models;
 
-import java.util.List;
+
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -13,9 +14,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -45,23 +43,35 @@ public class User {
 	
 	private String password;
 	
+	private boolean active;
+	
 	private String fullName;
 	
 	private String email;
 	
 	
-	
+	@Builder.Default
 	@ManyToMany 
+	@Enumerated(EnumType.STRING)
     @JoinTable(name = "user_roles", 
     		joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     @ToString.Exclude
-	private Set<Role> roles;
+	private Set<Role> roles = new HashSet();
 	
 	
     public void addRole( Role r ) {
         this.roles.add( r );
     }
+
+
+	public boolean getActive() {
+		return active;
+	}
+	
+	public void setActive(boolean b) {
+		active = b;
+	}
 	
 }
 

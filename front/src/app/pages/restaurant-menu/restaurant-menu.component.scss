@@ -1,0 +1,9 @@
+li {
+    display: inline-block;
+    border-radius: 0.3rem 0.3rem 0 0;
+    background-color: lightgray;
+}
+li:nth-of-type(odd) {
+    background-color: rgba(147, 207, 187, 0.8);
+    border-color: rgba(147, 207, 187, 0.8);
+}

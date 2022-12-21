@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -36,10 +37,12 @@ public class Category {
 	
 	private String name;
 	
-	
+	@ManyToOne
+	@JoinColumn(name = "menu_id")
+	private Menu menu;
 	
 	@OneToMany
-	@JoinTable(name = "product_id")
+	@JoinTable(name = "product_id_category")
 	private List<Product> products;
 	
 }

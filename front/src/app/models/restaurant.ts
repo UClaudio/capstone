@@ -4,19 +4,19 @@ import { Menu } from "./menu"
 export class Restaurant {
     id: number | undefined
     name: string
-    address: Address
+    address: string
     openingTime: Date
     closingTime: Date
     open: boolean
-    menus!: Menu[]
+    menu!: Menu
 
-    constructor(name: string, address: Address, openingTime: Date, closingTime: Date, open: boolean, menus: Menu[]){
+    constructor(name: string, address: string, openingTime: Date, closingTime: Date, open: boolean, menu: Menu){
         this.name = name
         this.address = address
         this.openingTime = openingTime
         this.closingTime = closingTime
         this.open = open
-        menus = menus
+        menu = menu
     }
 
 }

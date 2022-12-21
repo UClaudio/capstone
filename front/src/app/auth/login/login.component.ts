@@ -22,12 +22,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      email: new FormControl(null, [Validators.required]),
-      password: new FormControl(null, [Validators.required])
+      username: new FormControl(),
+      password: new FormControl()
     })
   }
 
-  login(){
+  login(e: Event){
+    e.preventDefault()
     this.auth.login(this.form.value)
     .subscribe(res => {
       this.auth.saveAuthToLocal(res)

@@ -14,15 +14,19 @@ export abstract class GenCrudService<T> {
     return this.http.get<T[]>(this.apiUrl)
   }
 
-  add(x: T) {
-    return this.http.post<T>(this.apiUrl,x)
+  getById(id: number): Observable<T> {
+    return this.http.get<T>(this.apiUrl+'/?id='+id)
   }
 
-  edit(x: T, id : number | undefined) {
+  add(x: T): Observable<T> {
+    return this.http.post<T>(this.apiUrl+"/add",x)
+  }
+
+  edit(x: T, id : number | undefined): Observable<T> {
     return this.http.patch<T>(this.apiUrl+'/'+id,x)
   }
 
-  delete(id: number | undefined) {
+  delete(id: number | undefined): Observable<T> {
     return this.http.delete<T>(this.apiUrl+'/'+id)
   }
 }

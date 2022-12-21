@@ -1,0 +1,9 @@
+<div class="restaurant-card d-flex m-2">
+    <div class="restaurant-info">
+        <h2>{{restaurant.name}}</h2>
+        <p>{{restaurant.address}}</p>
+        <p>{{restaurant.openingTime}}</p>
+        <p class="pb-3">{{restaurant.closingTime}}</p>
+    </div>
+    <a [routerLink]="['/pages/restaurants/menu/', restaurant.id]" (click)="takeRestaurant()" class="btn btn-primary add-to-cart-btn">aggiungi al carrello</a>
+</div>

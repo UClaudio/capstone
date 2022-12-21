@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.claudiourru.capstone.models.RoleType;
@@ -20,6 +21,7 @@ import com.claudiourru.capstone.services.RoleService;
 import com.claudiourru.capstone.services.UserService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/users")
 public class UserController {
 	
@@ -28,6 +30,8 @@ public class UserController {
 	
 	@Autowired
 	private RoleService rs;
+	
+
 
 //	@GetMapping("")
 //	@CrossOrigin
@@ -47,9 +51,9 @@ public class UserController {
 //
 //	}
 
-	@GetMapping("/{id}")
-	public ResponseEntity<User> getById(@PathVariable Long id) throws Exception {
-
+	@GetMapping("/")
+	public ResponseEntity<User> getById(@RequestParam Long id) throws Exception {
+		System.out.println("user");
 		return new ResponseEntity<>(us.findById(id), HttpStatus.OK);
 
 	}
@@ -60,15 +64,7 @@ public class UserController {
 //
 //	}
 
-	@PostMapping("/register")
-	@CrossOrigin
-	public void create(@RequestBody User user) {
-		try {
-			us.save(user);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
+
 
 	@PutMapping("")
 	public void update(@RequestBody User user) {

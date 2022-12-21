@@ -1,0 +1,17 @@
+<div class="menu-container text-center">
+  <h1 class="mt-4 mb-4">{{menu.name}}</h1>
+  <ul ngbNav #nav="ngbNav" class="nav-tabs d-flex justify-content-center">
+    <li *ngFor="let property of menu.categories" [ngbNavItem]="1">
+      <a ngbNavLink>{{property.name}}</a>
+      <ng-template ngbNavContent>
+        <div class="product d-flex justify-content-between" *ngFor="let product of property.products">
+            <p>{{product.name}}</p>
+            <p>{{product.price}}</p>
+          <button class="btn btn-primary" (click)="saveProduct(product.id)" >aggiungi</button>
+        </div>
+      </ng-template>
+    </li>
+
+  </ul>
+  <div [ngbNavOutlet]="nav"></div>
+</div>

@@ -1,19 +1,37 @@
-<div class="p-0 d-flex justify-content-center">
-    <div class="form-div mt-4 form-color">
-        <h1>Dove vuoi ricevere il cibo?</h1>
-        <form [formGroup]="form" id="form-location">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Address</label>
-                <input [(ngModel)]="address" name="address"  formControlName="address" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter address">
+<div class="p-0 d-flex flex-column container main bg-light">
+    <div class="div-form-container d-flex justify-content-center mt-3">
+        <div class="form-div form-color">
+            <h1>Dove vuoi ricevere il cibo?</h1>
+            <form id="form-location">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Indirizzo:</label>
+                    <input class="form-control" ngx-google-places-autocomplete [options]='options'
+                        #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+                </div>
+            </form>
+            <div id="infowindow-content">
+                <button class="btn btn-dark mt-3 fs-5" (click)="distanceMatrix()">Trova ristoranti</button>
             </div>
-            
-            <button type="submit" class="btn btn-primary mt-3">Submit</button>
-        </form>
-        <div id="infowindow-content">
-            <span id="place-name" class="title"></span><br/>
-            <span id="place-address"></span>
         </div>
     </div>
-    <div id="map" #divMap></div>
+</div>
+
+
+
+
+
+
+
+<!--
+    <button (click)="showDiv()" class="btn btn-dark">btn</button>
+<div class="divP">
+
+    <app-payment-components *ngIf="this.b"></app-payment-components>
+
+</div>
+-->
+<!--  cambiare ngfor da restaurants a restaurants2  -->
+<div class="restaurant-list">
+    <app-restaurant-card *ngFor="let restaurant of restaurants2" [restaurant]="restaurant" class="r-card d-flex justify-content-center">
+    </app-restaurant-card>
 </div>

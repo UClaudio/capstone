@@ -6,12 +6,71 @@
     z-index: -1;
 }
 
+.div-form-container {
+    width: 100%;
+    height: 22%;
+}
+
 .form-color {
     background-color: rgba(128, 204, 179, 0.9);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
     padding: 1rem;
-    border-radius: 1.5rem;
+    border-radius: .5rem;
+    height: 100%;
+    width: 60%;
 }
 
 
 
+.restaurant-list {
+    margin: 1rem;
+    border: 4px solid lightgray;
+    height: 35rem;
+    border-radius: 0.5rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 33rem;
+    
+}
+
+
+.divP {
+    background-color: lightgray;
+    height: 20rem;
+    width: 30rem;
+}
+
+@media screen and (min-width: 991px) {
+    .restaurant-list {
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .restaurant-list {
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 991px) {
+
+    .r-card {
+        width: 50%;
+    }
+
+    .restaurant-list {
+        flex-wrap: wrap;
+        box-sizing: content-box;
+        padding: 0 1rem 0 1.3rem;
+    }
+
+}
+@media screen and (min-width: 1400px) {
+
+    .r-card {
+        width: 33.3%;
+    }
+    
+
+}

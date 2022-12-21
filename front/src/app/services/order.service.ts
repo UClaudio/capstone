@@ -9,6 +9,6 @@ import { GenCrudService } from './gencrud.service';
 export class OrderService extends GenCrudService <Order> {
 
   constructor(private httpC:HttpClient) {
-    super(httpC, 'http://localhost:3000/users')
+    super(httpC, 'http://localhost:8080/api/orders')
   }
 }
